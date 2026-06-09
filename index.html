@@ -180,233 +180,53 @@
 
 <script>
 const DATA = [
-
   {
-    id: 'should-you-go', emoji: '🎯', name: 'Should You Go?',
-    subtitle: 'understand what you are actually signing up for',
-    concepts: [
-      { name: 'What Grad School Actually Is', items: [
-        { title: 'The Illustrated Guide to a PhD — Matt Might (read this first, takes 5 minutes)', src: 'Blog', diff: 'F', url: 'https://matt.might.net/articles/phd-school-in-pictures/' },
-        { title: 'A Survival Guide to a PhD — Andrej Karpathy (long, honest, essential)', src: 'Blog', diff: 'F', url: 'https://karpathy.github.io/2016/09/07/phd/' },
-        { title: 'The PhD Grind — Philip Guo (a full memoir of a Stanford CS PhD)', src: 'Blog', diff: 'F', url: 'http://pgbovine.net/PhD-grind.htm' },
-        { title: 'You and Your Research — Richard Hamming\'s 1986 talk on doing great work', src: 'Video', diff: 'F', url: 'https://www.youtube.com/watch?v=a1zDuOPkMSw' },
-        { title: 'Applying to PhD Programs in Computer Science — Mor Harchol-Balter, CMU', src: 'Docs', diff: 'F', url: 'https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf' },
-      ]},
-      { name: 'MSc vs PhD', items: [
-        { title: 'How to Pick Your Grad School — Tim Dettmers (covers MSc vs PhD clearly)', src: 'Blog', diff: 'F', url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/' },
-        { title: 'PhD vs Master\'s: which one do you actually need? — r/gradadmissions wiki', src: 'Forum', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/wiki/index/' },
-        { title: 'Thesis-based vs Course-based Master\'s — what the difference means for your career', src: 'Blog', diff: 'F', url: 'https://www.reddit.com/r/GradSchool/comments/vsblm5/thesis_based_vs_coursework_masters/' },
-        { title: 'The case for a professional Master\'s over a PhD — when it\'s the smarter move', src: 'Blog', diff: 'I', url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/' },
-      ]},
-      { name: 'Questions to Answer First', items: [
-        { title: 'Do you actually need grad school? — the honest self-assessment', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/qjsxgs/do_you_actually_need_a_phd/' },
-        { title: 'Questions to ask yourself before you apply — from r/gradadmissions', src: 'Forum', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/wiki/index/' },
-        { title: 'The real cost of a PhD — opportunity cost, stipends, and what you are trading', src: 'Blog', diff: 'I', url: 'https://karpathy.github.io/2016/09/07/phd/' },
-      ]},
-    ]
+    id: 'before', emoji: '🎯', name: 'Before You Apply',
+    subtitle: 'read these first — in this order',
+    concepts: [{ name: '', items: [
+      { title: 'A Survival Guide to a PhD — Andrej Karpathy. Long, honest, covers everything nobody tells you', src: 'Blog', diff: 'F', url: 'https://karpathy.github.io/2016/09/07/phd/' },
+      { title: 'How to Pick Your Grad School — Tim Dettmers. The best single resource on MSc vs PhD, rankings vs fit, and the advisor question', src: 'Blog', diff: 'F', url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/' },
+      { title: 'Applying to PhD Programs in CS — Mor Harchol-Balter, CMU. The canonical guide. Covers what gets you in and what does not', src: 'Docs', diff: 'F', url: 'https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf' },
+    ]}]
   },
-
   {
-    id: 'research-direction', emoji: '🔬', name: 'Finding Your Research Direction',
-    subtitle: 'you need to know what you want to work on before you apply',
-    concepts: [
-      { name: 'Learning to Read Research', items: [
-        { title: 'How to Read a Paper — S. Keshav\'s classic three-pass method (PDF)', src: 'Paper', diff: 'F', url: 'https://web.stanford.edu/class/ee384m/Handouts/HowtoReadPaper.pdf' },
-        { title: 'How to Read a CS Research Paper — Philip Guo', src: 'Blog', diff: 'F', url: 'http://pgbovine.net/how-to-read-a-research-paper.htm' },
-        { title: 'Semantic Scholar — AI-powered paper discovery with citation graphs', src: 'Tool', diff: 'F', url: 'https://www.semanticscholar.org/' },
-        { title: 'Papers With Code — find SOTA papers with code, great for ML/AI subfields', src: 'Tool', diff: 'F', url: 'https://paperswithcode.com/' },
-        { title: 'arXiv CS — preprints for every CS subfield, the real frontier', src: 'Tool', diff: 'F', url: 'https://arxiv.org/list/cs/recent' },
-      ]},
-      { name: 'Identifying Your Subfield', items: [
-        { title: 'CS Rankings research areas — see which subfields have strong programs', src: 'Tool', diff: 'F', url: 'https://csrankings.org/' },
-        { title: 'How to find open research problems — reading papers to find the gaps', src: 'Blog', diff: 'I', url: 'https://matt.might.net/articles/how-to-be-a-student/' },
-        { title: 'AI vs ML vs NLP vs Systems — understanding the CS subfield landscape', src: 'Forum', diff: 'F', url: 'https://www.reddit.com/r/MachineLearning/wiki/index/' },
-        { title: 'Following researchers on Google Scholar — track what interests you', src: 'Tool', diff: 'F', url: 'https://scholar.google.com/' },
-      ]},
-    ]
+    id: 'programs', emoji: '🗺️', name: 'Finding the Right Programs',
+    subtitle: 'the advisor matters more than the school',
+    concepts: [{ name: '', items: [
+      { title: 'CS Rankings — ranked by publication volume per research area, not reputation or US News', src: 'Tool', diff: 'F', url: 'https://csrankings.org/' },
+    ]}]
   },
-
   {
-    id: 'researching-programs', emoji: '🗺️', name: 'Researching Programs',
-    subtitle: 'rankings are a starting point, not a destination',
-    concepts: [
-      { name: 'The Right Criteria', items: [
-        { title: 'CS Rankings — ranked by research output per area, not reputation', src: 'Tool', diff: 'F', url: 'https://csrankings.org/' },
-        { title: 'How to Pick Your Grad School — the definitive breakdown (Tim Dettmers)', src: 'Blog', diff: 'F', url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/' },
-        { title: 'Rankings vs research fit — why the #8 school might be better for you than #2', src: 'Blog', diff: 'I', url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/' },
-        { title: 'The advisor is the degree — why choosing a supervisor matters more than the school', src: 'Blog', diff: 'I', url: 'https://www.cs.columbia.edu/wp-content/uploads/2019/03/Get-Advisor.pdf' },
-      ]},
-      { name: 'Building Your List', items: [
-        { title: 'How to read a faculty page — what to look for (recent papers, group size, funding)', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/f9tmlt/guide_how_to_research_potential_advisors/' },
-        { title: 'Checking grad student placements — the best signal for program quality', src: 'Blog', diff: 'I', url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/' },
-        { title: 'The GradCafe — real admission results from past applicants', src: 'Tool', diff: 'F', url: 'https://www.thegradcafe.com/' },
-        { title: 'r/gradadmissions — results threads, advice, school-specific info', src: 'Forum', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/' },
-        { title: 'Making your shortlist — aim for 2-3 reach, 3-4 target, 2 safe programs', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/wiki/index/' },
-      ]},
-      { name: 'Canadian Programs', items: [
-        { title: 'Top CS programs in Canada — UofT, UBC, McGill, Waterloo, SFU, Alberta', src: 'Forum', diff: 'F', url: 'https://www.reddit.com/r/cscareerquestionsCAD/comments/grad_school/' },
-        { title: 'Canadian vs US PhD — funding, culture, and career differences', src: 'Blog', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/canada_vs_us_phd/' },
-        { title: 'MITACS Globalink and Canadian graduate programs — overview', src: 'Docs', diff: 'F', url: 'https://www.mitacs.ca/en/programs/globalink/globalink-graduate-fellowship' },
-      ]},
-    ]
+    id: 'sop', emoji: '✍️', name: 'The Statement of Purpose',
+    subtitle: 'the most important thing you will write',
+    concepts: [{ name: '', items: [
+      { title: 'CS PhD Statements of Purpose — annotated real examples from admitted students at top programs', src: 'Blog', diff: 'F', url: 'https://cs-sop.notion.site/CS-PhD-Statements-of-Purpose-df39955313834889b7ac5411c37b958b' },
+      { title: 'What CS faculty look for in PhD applications — Jean Yang. Short, direct, from the other side of the table', src: 'Blog', diff: 'F', url: 'https://jxyzabc.blogspot.com/2012/10/faq-applying-to-graduate-school-in.html' },
+    ]}]
   },
-
   {
-    id: 'statement-of-purpose', emoji: '✍️', name: 'The Statement of Purpose',
-    subtitle: 'the most important thing you will write in this process',
-    concepts: [
-      { name: 'Structure and Strategy', items: [
-        { title: 'Statement of Purpose: Samples and Tips — Vince Gotera, UNI Writing Center', src: 'Docs', diff: 'F', url: 'https://owl.purdue.edu/owl/job_search_writing/preparing_an_application/writing_the_personal_statement/index.html' },
-        { title: 'Applying to PhD Programs in CS — read the SOP section (CMU guide)', src: 'Docs', diff: 'F', url: 'https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf' },
-        { title: 'The four-section SOP that works: research story, past work, why here, future', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/f8e9ml/guide_to_writing_a_strong_statement_of_purpose/' },
-        { title: 'CS PhD SOP examples — annotated real examples from admitted students', src: 'Blog', diff: 'F', url: 'https://cs-sop.notion.site/CS-PhD-Statements-of-Purpose-df39955313834889b7ac5411c37b958b' },
-      ]},
-      { name: 'What Professors Actually Read', items: [
-        { title: 'What CS faculty look for in PhD applications — Jean Yang', src: 'Blog', diff: 'I', url: 'https://jxyzabc.blogspot.com/2012/10/faq-applying-to-graduate-school-in.html' },
-        { title: 'The SOP is not your resume — it\'s a research proposal in disguise', src: 'Blog', diff: 'I', url: 'https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf' },
-        { title: 'What makes an SOP stand out — professors answer anonymously (r/gradadmissions)', src: 'Forum', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/what_do_professors_want_in_sop/' },
-        { title: 'Research narrative vs list of accomplishments — the key distinction', src: 'Guide', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/f8e9ml/guide_to_writing_a_strong_statement_of_purpose/' },
-      ]},
-      { name: 'Polishing It', items: [
-        { title: 'Common SOP mistakes — vague goals, generic "passion", no specifics', src: 'Blog', diff: 'I', url: 'https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf' },
-        { title: 'How to tailor your SOP for each program — what to change, what to keep', src: 'Guide', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/sop_tailoring_guide/' },
-        { title: 'Getting feedback on your SOP — who to ask and what questions to give them', src: 'Guide', diff: 'A', url: 'https://www.reddit.com/r/gradadmissions/comments/sop_feedback_guide/' },
-        { title: 'SOP editing checklist — every line should earn its place', src: 'Guide', diff: 'A', url: 'https://cs-sop.notion.site/CS-PhD-Statements-of-Purpose-df39955313834889b7ac5411c37b958b' },
-      ]},
-    ]
+    id: 'email', emoji: '📧', name: 'Contacting Professors',
+    subtitle: 'one email to the right person can change everything',
+    concepts: [{ name: '', items: [
+      { title: 'How to Email a Research Supervisor — Matt Might. The framework behind every email that actually gets a reply', src: 'Blog', diff: 'F', url: 'https://matt.might.net/articles/how-to-email/' },
+    ]}]
   },
-
   {
-    id: 'contacting-professors', emoji: '📧', name: 'Contacting Professors',
-    subtitle: 'one email can change everything — most people do this wrong',
-    concepts: [
-      { name: 'Before You Write', items: [
-        { title: 'How to email a research supervisor — the complete guide', src: 'Blog', diff: 'F', url: 'https://matt.might.net/articles/how-to-email/' },
-        { title: 'Reading faculty pages to check if they are taking students', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/how_to_check_if_prof_is_taking_students/' },
-        { title: 'Reading 1-2 papers before you email — the bare minimum (and how to do it fast)', src: 'Guide', diff: 'F', url: 'https://web.stanford.edu/class/ee384m/Handouts/HowtoReadPaper.pdf' },
-      ]},
-      { name: 'Writing the Email', items: [
-        { title: 'How to Email a Research Professor — Matt Might\'s framework', src: 'Blog', diff: 'F', url: 'https://matt.might.net/articles/how-to-email/' },
-        { title: 'Email template that gets replies — subject, hook, work, ask (keep it to 150 words)', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/cold_email_templates_that_work/' },
-        { title: 'What to put in the subject line — and what kills emails instantly', src: 'Guide', diff: 'F', url: 'https://matt.might.net/articles/how-to-email/' },
-        { title: 'How to ask a specific question — not "will you be my supervisor?"', src: 'Guide', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/cold_email_templates_that_work/' },
-        { title: 'Successful cold emails — real examples from admitted PhD students', src: 'Forum', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/successful_cold_email_examples/' },
-      ]},
-      { name: 'After They Reply', items: [
-        { title: 'When a professor responds — how to handle the follow-up call', src: 'Guide', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/professor_responded_now_what/' },
-        { title: 'Questions to ask a potential advisor before you commit', src: 'Blog', diff: 'I', url: 'https://www.cs.columbia.edu/wp-content/uploads/2019/03/Get-Advisor.pdf' },
-        { title: 'Red flags in a professor\'s reply — when to walk away', src: 'Forum', diff: 'A', url: 'https://www.reddit.com/r/gradadmissions/comments/red_flags_from_professors/' },
-      ]},
-    ]
+    id: 'funding', emoji: '💰', name: 'Funding',
+    subtitle: 'never pay for a PhD',
+    concepts: [{ name: '', items: [
+      { title: 'NSF Graduate Research Fellowship — the most prestigious US fellowship, apply in your senior year', src: 'Docs', diff: 'I', url: 'https://www.nsfgrfp.org/' },
+      { title: 'NSERC CGS-M and CGS-D — Canadian government grad scholarships, up to $35k/year', src: 'Docs', diff: 'I', url: 'https://www.nserc-crsng.gc.ca/students-etudiants/pg-cs/index_eng.asp' },
+    ]}]
   },
-
   {
-    id: 'letters-of-rec', emoji: '📝', name: 'Letters of Recommendation',
-    subtitle: 'a strong letter from the right person can carry your application',
-    concepts: [
-      { name: 'Choosing Your Writers', items: [
-        { title: 'Who counts as a strong recommender in CS — research > courses, always', src: 'Docs', diff: 'F', url: 'https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf' },
-        { title: 'Strong vs weak letters — what the difference actually looks like', src: 'Blog', diff: 'F', url: 'https://jxyzabc.blogspot.com/2012/10/faq-applying-to-graduate-school-in.html' },
-        { title: 'Can an industry letter help? — yes, but only if they can speak to research ability', src: 'Forum', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/industry_letter_vs_academic_letter/' },
-        { title: 'What to do if you graduated years ago and lost touch with professors', src: 'Guide', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/letters_of_rec_for_non_traditional_applicants/' },
-      ]},
-      { name: 'Setting Them Up for Success', items: [
-        { title: 'How to ask for a letter — the right timing, framing, and what to include', src: 'Blog', diff: 'F', url: 'https://www.theprofessorisin.com/2011/09/23/writing-the-letter-of-recommendation/' },
-        { title: 'The brag sheet — what to send your recommenders so they write something specific', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/the_brag_sheet_for_lor/' },
-        { title: 'The recommender package — cover email, CV, SOP draft, deadline list', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/how_to_help_your_recommenders/' },
-        { title: 'Following up on letters — how to nudge without being annoying', src: 'Guide', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/following_up_on_lor/' },
-      ]},
-    ]
+    id: 'decision', emoji: '🚀', name: 'The Decision',
+    subtitle: 'picking the right offer matters more than getting in',
+    concepts: [{ name: '', items: [
+      { title: 'Getting the Advising Relationship Right — Columbia guide. The single most important thing to figure out before you accept', src: 'Docs', diff: 'I', url: 'https://www.cs.columbia.edu/wp-content/uploads/2019/03/Get-Advisor.pdf' },
+      { title: 'r/gradadmissions — results, advice, school-specific threads. The community that has been through it', src: 'Forum', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/' },
+    ]}]
   },
-
-  {
-    id: 'full-application', emoji: '📋', name: 'The Full Application Package',
-    subtitle: 'everything that is not the SOP but still matters',
-    concepts: [
-      { name: 'Your CV', items: [
-        { title: 'CV vs Resume — for grad school it is a CV, and it is structured differently', src: 'Docs', diff: 'F', url: 'https://owl.purdue.edu/owl/job_search_writing/preparing_an_application/curriculum_vitae_overview.html' },
-        { title: 'CS PhD CV template — what to include and what to cut', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/grad_school_cv_guide/' },
-        { title: 'How to show research experience if you do not have publications', src: 'Forum', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/research_experience_without_publications/' },
-      ]},
-      { name: 'Transcripts and Grades', items: [
-        { title: 'How much does GPA matter? — the honest answer by field and program', src: 'Blog', diff: 'F', url: 'https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf' },
-        { title: 'Addressing a low GPA or bad semester in your application', src: 'Forum', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/addressing_low_gpa_in_phd_application/' },
-        { title: 'Unofficial vs official transcripts — what programs actually require and when', src: 'Docs', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/transcript_requirements_for_grad_school/' },
-      ]},
-      { name: 'The GRE', items: [
-        { title: 'GRE-free CS PhD programs — most top programs dropped it (maintained list)', src: 'Forum', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/mkiztd/master_list_of_grequired_and_optional_programs/' },
-        { title: 'When the GRE still matters and how to approach it', src: 'Blog', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/does_gre_still_matter/' },
-      ]},
-      { name: 'Staying Organized', items: [
-        { title: 'Application tracking spreadsheet — deadlines, portals, LOR status, fee waivers', src: 'Tool', diff: 'F', url: 'https://www.notion.so/templates/grad-school-application-tracker' },
-        { title: 'Fee waivers — most programs have them and most applicants do not ask', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/fee_waivers_guide/' },
-        { title: 'Application timeline — when to start each piece (work backward from Dec 1)', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/application_timeline_guide/' },
-      ]},
-    ]
-  },
-
-  {
-    id: 'funding', emoji: '💰', name: 'Funding, Stipends, and Scholarships',
-    subtitle: 'never pay for a PhD — and know exactly what to ask for',
-    concepts: [
-      { name: 'How Grad School Funding Works', items: [
-        { title: 'How PhD funding works — stipends, TAships, RAships explained', src: 'Blog', diff: 'F', url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/' },
-        { title: 'TAship vs RAship — which is better for you?', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/GradSchool/comments/taship_vs_raship_comparison/' },
-        { title: 'Do not pay for a PhD — red flags for unfunded programs', src: 'Blog', diff: 'F', url: 'https://karpathy.github.io/2016/09/07/phd/' },
-        { title: 'What a typical PhD stipend covers — reality vs the numbers', src: 'Forum', diff: 'F', url: 'https://www.reddit.com/r/GradSchool/comments/phd_stipend_cost_of_living/' },
-      ]},
-      { name: 'External Fellowships (Apply Separately)', items: [
-        { title: 'NSF Graduate Research Fellowship Program — the most prestigious US fellowship', src: 'Docs', diff: 'I', url: 'https://www.nsfgrfp.org/' },
-        { title: 'NSERC CGS-M and CGS-D — Canadian government grad scholarships', src: 'Docs', diff: 'I', url: 'https://www.nserc-crsng.gc.ca/students-etudiants/pg-cs/index_eng.asp' },
-        { title: 'Vanier Canada Graduate Scholarships — $50k/year for PhD (Canada)', src: 'Docs', diff: 'I', url: 'https://vanier.gc.ca/en/home-accueil.html' },
-        { title: 'Hertz Fellowship — competitive US fellowship for applied science PhDs', src: 'Docs', diff: 'A', url: 'https://www.hertzfoundation.org/the-fellowship/' },
-        { title: 'Full list of CS grad fellowships worth applying to', src: 'Forum', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/full_list_of_cs_fellowships/' },
-      ]},
-      { name: 'Negotiating Your Offer', items: [
-        { title: 'What is negotiable in a PhD offer — stipend, start date, TA load, equipment', src: 'Guide', diff: 'A', url: 'https://www.reddit.com/r/gradadmissions/comments/negotiating_phd_offer/' },
-        { title: 'How to negotiate without losing the offer — the right framing', src: 'Guide', diff: 'A', url: 'https://www.reddit.com/r/GradSchool/comments/how_to_negotiate_phd_stipend/' },
-        { title: 'Competing offers as leverage — how to use them properly', src: 'Forum', diff: 'A', url: 'https://www.reddit.com/r/gradadmissions/comments/using_competing_offers_to_negotiate/' },
-      ]},
-    ]
-  },
-
-  {
-    id: 'interviews', emoji: '🤝', name: 'Interviews and Visit Days',
-    subtitle: 'they are evaluating you — you should be evaluating them too',
-    concepts: [
-      { name: 'The Interview', items: [
-        { title: 'What to expect in a PhD interview — format, duration, questions', src: 'Blog', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/what_to_expect_phd_interview/' },
-        { title: 'Common PhD interview questions and how to answer them', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/phd_interview_questions_and_answers/' },
-        { title: 'What they are really evaluating — fit, coachability, self-awareness', src: 'Blog', diff: 'I', url: 'https://www.cs.columbia.edu/wp-content/uploads/2019/03/Get-Advisor.pdf' },
-        { title: 'How to talk about your research ideas in an interview without overcommitting', src: 'Guide', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/interview_research_ideas_guide/' },
-      ]},
-      { name: 'Visit Days', items: [
-        { title: 'Questions to ask on visit day — the ones that reveal real culture', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/questions_to_ask_on_visit_day/' },
-        { title: 'Red flags to watch for on a visit — overworked students, absent advisors', src: 'Blog', diff: 'I', url: 'https://www.reddit.com/r/GradSchool/comments/red_flags_during_phd_visit_day/' },
-        { title: 'How to evaluate the advisor-student relationship — talk to current students alone', src: 'Guide', diff: 'I', url: 'https://www.cs.columbia.edu/wp-content/uploads/2019/03/Get-Advisor.pdf' },
-      ]},
-    ]
-  },
-
-  {
-    id: 'decision', emoji: '🚀', name: 'The Decision and What Comes Next',
-    subtitle: 'choosing well here matters more than getting in',
-    concepts: [
-      { name: 'Comparing Offers', items: [
-        { title: 'How to compare PhD offers — advisor, lab culture, funding, location, career outcomes', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/how_to_compare_phd_offers/' },
-        { title: 'Advisor quality vs program ranking — which matters more (almost always advisor)', src: 'Blog', diff: 'I', url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/' },
-        { title: 'Declining offers gracefully — timing, email templates, why it matters for future applicants', src: 'Guide', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/comments/how_to_decline_grad_school_offers/' },
-        { title: 'The waitlist — how to handle it, whether to push, when to give up', src: 'Forum', diff: 'I', url: 'https://www.reddit.com/r/gradadmissions/comments/waitlisted_what_to_do/' },
-      ]},
-      { name: 'Before You Start', items: [
-        { title: 'What to do in the months before your PhD starts', src: 'Blog', diff: 'F', url: 'https://karpathy.github.io/2016/09/07/phd/' },
-        { title: 'How to set up your research environment — tools, reading lists, habits', src: 'Blog', diff: 'F', url: 'https://matt.might.net/articles/productivity-tips-hints-hacks-tricks-for-grad-students-academics/' },
-        { title: 'The first year survival guide — what the first year of a CS PhD actually looks like', src: 'Blog', diff: 'I', url: 'https://www.reddit.com/r/GradSchool/comments/first_year_phd_survival_guide/' },
-        { title: 'How to build a relationship with your advisor from day one', src: 'Docs', diff: 'I', url: 'https://www.cs.columbia.edu/wp-content/uploads/2019/03/Get-Advisor.pdf' },
-      ]},
-    ]
-  },
-
 ];
 
 // ── State ──────────────────────────────────────────────────────────────────────
