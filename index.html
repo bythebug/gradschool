@@ -1,414 +1,503 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>gradschool 🎓 — How to Get Into Grad School</title>
 <meta name="description" content="The honest guide to grad school applications. SOP writing, finding supervisors, program selection, funding — from someone who got into McGill CS.">
 <style>
-  [data-theme="dark"] {
-    --bg: #0f0f0f; --surface: #1a1a1a; --surface2: #242424; --border: #2e2e2e;
-    --text: #e8e8e8; --text2: #aaa; --muted: #555; --accent: #6366f1;
-    --green: #22c55e; --green-bg: #14532d22;
-    --yellow: #eab308; --yellow-bg: #713f1222;
-    --red: #ef4444; --red-bg: #7f1d1d22;
-    --shadow: 0 1px 3px rgba(0,0,0,0.4);
+  :root {
+    --bg: #ffffff;
+    --page-bg: #f7f7f5;
+    --surface: #ffffff;
+    --border: #e9e9e7;
+    --text: #37352f;
+    --text2: #787672;
+    --text3: #b9b8b5;
+    --accent: #6366f1;
+    --accent-bg: rgba(99,102,241,0.07);
+    --callout: #f5f5f0;
+    --callout-border: #e3e3dc;
+    --check-border: #d3d3cf;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
   }
-  [data-theme="light"] {
-    --bg: #f4f6f8; --surface: #ffffff; --surface2: #f0f2f5; --border: #dde1e7;
-    --text: #111827; --text2: #4b5563; --muted: #9ca3af; --accent: #4f46e5;
-    --green: #16a34a; --green-bg: #f0fdf4;
-    --yellow: #d97706; --yellow-bg: #fffbeb;
-    --red: #dc2626; --red-bg: #fef2f2;
-    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  [data-theme="dark"] {
+    --bg: #191919;
+    --page-bg: #191919;
+    --surface: #252525;
+    --border: #363636;
+    --text: #e8e8e5;
+    --text2: #9a9895;
+    --text3: #575553;
+    --accent: #818cf8;
+    --accent-bg: rgba(129,140,248,0.1);
+    --callout: #252525;
+    --callout-border: #363636;
+    --check-border: #4a4a4a;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.04);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; transition: background 0.2s, color 0.2s; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background 0.2s, color 0.2s;
+  }
 
-  .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 24px; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
-  .header-inner { max-width: 1000px; margin: 0 auto; }
-  .header-row1 { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
-  .logo { font-size: 17px; font-weight: 800; letter-spacing: -0.5px; }
-  .logo span { color: var(--accent); }
-  .tagline { font-size: 11px; color: var(--muted); margin-top: 2px; }
-  .header-right { display: flex; align-items: center; gap: 12px; }
-  .overall-count { font-size: 13px; color: var(--text2); white-space: nowrap; }
-  .overall-count strong { color: var(--green); font-size: 16px; font-weight: 700; }
-  .progress-bar-wrap { width: 160px; background: var(--surface2); border-radius: 999px; height: 6px; overflow: hidden; }
-  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #a78bfa); border-radius: 999px; transition: width 0.4s ease; width: 0%; }
-  .theme-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: background 0.2s; flex-shrink: 0; }
-  .theme-btn:hover { background: var(--border); }
+  /* ── Topbar ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 44px;
+  }
+  .topbar-left { display: flex; align-items: center; gap: 10px; }
+  .back-link {
+    font-size: 13px; color: var(--text2); text-decoration: none;
+    display: flex; align-items: center; gap: 5px;
+    padding: 4px 8px; border-radius: 5px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .back-link:hover { background: var(--callout); color: var(--text); }
+  .sep { color: var(--text3); font-size: 13px; }
+  .breadcrumb { font-size: 13px; color: var(--text); font-weight: 500; }
+  .progress-pill {
+    font-size: 12px; color: var(--text2);
+    background: var(--callout); border-radius: 999px;
+    padding: 2px 10px;
+  }
+  .progress-pill b { color: var(--accent); }
+  .topbar-right { display: flex; align-items: center; }
+  .theme-btn {
+    background: none; border: 1px solid var(--border); border-radius: 6px;
+    width: 30px; height: 30px; cursor: pointer; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text2); transition: all 0.15s;
+  }
+  .theme-btn:hover { background: var(--callout); }
 
-  .header-row2 { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-  .search-input { background: var(--surface2); border: 1px solid var(--border); border-radius: 7px; padding: 7px 12px; color: var(--text); font-size: 13px; outline: none; width: 210px; transition: border-color 0.2s; }
-  .search-input:focus { border-color: var(--accent); }
-  .search-input::placeholder { color: var(--muted); }
-  .filter-group { display: flex; gap: 4px; }
-  .filter-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; color: var(--text2); font-size: 12px; cursor: pointer; transition: all 0.15s; font-family: inherit; }
-  .filter-btn:hover { border-color: var(--accent); color: var(--text); }
-  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
-  .diff-filter-group { display: flex; gap: 4px; }
-  .diff-filter-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 11px; cursor: pointer; font-family: inherit; transition: all 0.15s; font-weight: 600; }
-  .diff-filter-btn.found { color: var(--green); }
-  .diff-filter-btn.inter { color: var(--yellow); }
-  .diff-filter-btn.adv { color: var(--red); }
-  .diff-filter-btn.active.found { background: var(--green-bg); border-color: var(--green); }
-  .diff-filter-btn.active.inter { background: var(--yellow-bg); border-color: var(--yellow); }
-  .diff-filter-btn.active.adv { background: var(--red-bg); border-color: var(--red); }
-  .reset-btn { background: transparent; border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; color: var(--muted); font-size: 12px; cursor: pointer; font-family: inherit; transition: all 0.15s; margin-left: auto; }
-  .reset-btn:hover { border-color: var(--red); color: var(--red); }
+  /* ── Page body ── */
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 48px 120px;
+    background: var(--bg);
+    min-height: calc(100vh - 44px);
+  }
 
-  .main { max-width: 1000px; margin: 0 auto; padding: 20px 24px; }
-  .stats-row { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
-  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; flex: 1; min-width: 120px; box-shadow: var(--shadow); }
-  .stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
-  .stat-value { font-size: 22px; font-weight: 700; }
-  .stat-value.green { color: var(--green); }
-  .stat-value.blue { color: var(--accent); }
-  .stat-value.yellow { color: var(--yellow); }
+  /* ── Hero ── */
+  .hero-icon { font-size: 60px; line-height: 1; margin-bottom: 20px; }
+  .hero-title {
+    font-size: 38px; font-weight: 700; letter-spacing: -0.5px;
+    color: var(--text); margin-bottom: 10px; line-height: 1.15;
+  }
+  .hero-sub { font-size: 16px; color: var(--text2); margin-bottom: 6px; }
+  .hero-by { font-size: 13px; color: var(--text3); }
+  .hero-by a { color: var(--text2); text-decoration: none; }
+  .hero-by a:hover { color: var(--accent); }
+  .hero-meta {
+    margin-top: 20px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--text3);
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
 
-  .category { margin-bottom: 10px; }
-  .cat-header { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; user-select: none; transition: background 0.15s; box-shadow: var(--shadow); }
-  .cat-header:hover { background: var(--surface2); }
-  .category.open .cat-header { border-radius: 10px 10px 0 0; }
-  .cat-chevron { font-size: 9px; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
-  .category.open .cat-chevron { transform: rotate(90deg); }
-  .cat-emoji { font-size: 16px; flex-shrink: 0; }
-  .cat-name { font-size: 14px; font-weight: 700; flex: 1; }
-  .cat-subtitle { font-size: 10px; color: var(--muted); font-weight: 400; margin-left: 6px; }
-  .cat-meta { display: flex; align-items: center; gap: 8px; }
-  .cat-done-count { font-size: 12px; color: var(--green); font-weight: 700; }
-  .cat-total-count { font-size: 12px; color: var(--muted); }
-  .cat-bar-wrap { width: 70px; background: var(--surface2); border-radius: 999px; height: 4px; overflow: hidden; }
-  .cat-bar-fill { height: 100%; background: var(--accent); border-radius: 999px; transition: width 0.3s; }
+  /* ── Divider ── */
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
 
-  .questions-list { border: 1px solid var(--border); border-top: none; border-radius: 0 0 10px 10px; overflow: hidden; display: none; background: var(--surface); }
-  .category.open .questions-list { display: block; }
-  .q-row { display: flex; align-items: center; gap: 12px; padding: 9px 16px; border-bottom: 1px solid var(--border); transition: background 0.1s; }
-  .q-row:last-child { border-bottom: none; }
-  .q-row:hover { background: var(--surface2); }
-  .q-row.done { opacity: 0.45; }
-  .q-row.hidden { display: none; }
-  .q-checkbox { width: 17px; height: 17px; border-radius: 4px; border: 2px solid var(--border); background: transparent; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-size: 10px; font-weight: 800; color: #fff; }
-  .q-checkbox:hover { border-color: var(--accent); }
-  .q-checkbox.checked { background: var(--accent); border-color: var(--accent); }
-  .q-order { font-size: 10px; color: var(--muted); width: 24px; text-align: right; flex-shrink: 0; font-family: monospace; }
-  .diff-badge { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; flex-shrink: 0; letter-spacing: 0.3px; text-transform: uppercase; }
-  .diff-badge.F { background: var(--green-bg); color: var(--green); }
-  .diff-badge.I { background: var(--yellow-bg); color: var(--yellow); }
-  .diff-badge.A { background: var(--red-bg); color: var(--red); }
-  .q-title { flex: 1; font-size: 13px; color: var(--text); text-decoration: none; line-height: 1.4; }
-  .q-row.done .q-title { text-decoration: line-through; color: var(--muted); }
-  .q-title:hover { color: var(--accent); }
-  .src-badge { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 4px; flex-shrink: 0; font-family: monospace; }
-  .src-badge.Blog   { background: #1e3a5f22; color: #60a5fa; border: 1px solid #1e3a5f55; }
-  .src-badge.Docs   { background: #134e4a22; color: #2dd4bf; border: 1px solid #134e4a55; }
-  .src-badge.Video  { background: #7f1d1d22; color: #f87171; border: 1px solid #7f1d1d55; }
-  .src-badge.Paper  { background: #4c1d9522; color: #a78bfa; border: 1px solid #4c1d9555; }
-  .src-badge.Tool   { background: #0c4a6e22; color: #38bdf8; border: 1px solid #0c4a6e55; }
-  .src-badge.Forum  { background: #7c2d1222; color: #fb923c; border: 1px solid #7c2d1255; }
-  .src-badge.Guide  { background: #3730a322; color: #818cf8; border: 1px solid #3730a355; }
-  .q-link { font-size: 11px; color: var(--muted); text-decoration: none; padding: 3px 8px; border: 1px solid var(--border); border-radius: 4px; flex-shrink: 0; transition: all 0.15s; white-space: nowrap; }
-  .q-link:hover { border-color: var(--accent); color: var(--accent); }
+  /* ── Section ── */
+  .section { margin-bottom: 48px; }
+  .section-head { margin-bottom: 20px; }
+  .section-title {
+    font-size: 22px; font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 5px;
+  }
+  .section-subtitle { font-size: 13px; color: var(--text2); font-style: italic; }
 
-  .concept-divider { display: flex; align-items: center; gap: 10px; padding: 6px 16px; background: var(--surface2); border-bottom: 1px solid var(--border); }
-  .concept-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
+  /* ── Callout ── */
+  .callout {
+    background: var(--callout);
+    border: 1px solid var(--callout-border);
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 14px; color: var(--text2);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
-  .empty { text-align: center; padding: 60px 24px; color: var(--muted); display: none; }
-  .empty.show { display: block; }
-  .empty-icon { font-size: 36px; margin-bottom: 10px; }
-  .empty-text { font-size: 14px; }
-  .footer { text-align: center; padding: 32px 24px; color: var(--muted); font-size: 11px; }
+  /* ── Resource cards ── */
+  .resource-list { display: flex; flex-direction: column; gap: 6px; }
+  .resource {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    transition: box-shadow 0.15s, border-color 0.15s;
+  }
+  .resource:hover { box-shadow: var(--shadow-sm); }
+  .resource.read { opacity: 0.45; }
+  .resource.read .res-title { text-decoration: line-through; color: var(--text2); }
 
-  @media (max-width: 600px) {
-    .header { padding: 12px 14px; }
-    .main { padding: 12px 14px; }
-    .progress-bar-wrap { width: 100px; }
-    .q-order { display: none; }
-    .search-input { width: 150px; }
+  .res-check {
+    width: 18px; height: 18px; border-radius: 4px;
+    border: 1.5px solid var(--check-border);
+    flex-shrink: 0; margin-top: 2px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+    background: transparent;
+  }
+  .res-check:hover { border-color: var(--accent); background: var(--accent-bg); }
+  .res-check.on { background: var(--accent); border-color: var(--accent); }
+  .res-check.on::after {
+    content: '';
+    display: block;
+    width: 4px; height: 8px;
+    border: 2px solid #fff;
+    border-top: none; border-left: none;
+    transform: rotate(45deg) translate(-0.5px, -1px);
+  }
+
+  .res-body { flex: 1; min-width: 0; }
+  .res-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 5px; }
+  .res-title {
+    font-size: 14px; font-weight: 600; color: var(--text);
+    text-decoration: none; transition: color 0.15s;
+  }
+  .res-title:hover { color: var(--accent); }
+  .res-author { font-size: 12px; color: var(--text3); white-space: nowrap; }
+  .res-desc { font-size: 13.5px; color: var(--text2); line-height: 1.55; margin-bottom: 10px; }
+  .res-foot { display: flex; align-items: center; gap: 8px; }
+
+  .src-badge {
+    font-size: 11px; font-weight: 500; padding: 1px 7px;
+    border-radius: 4px; border: 1px solid; flex-shrink: 0;
+  }
+  .src-badge.Blog  { background:#eff6ff; color:#3b82f6; border-color:#bfdbfe; }
+  .src-badge.Docs  { background:#f0fdf4; color:#16a34a; border-color:#bbf7d0; }
+  .src-badge.Tool  { background:#f0f9ff; color:#0284c7; border-color:#bae6fd; }
+  .src-badge.Forum { background:#fff7ed; color:#ea580c; border-color:#fed7aa; }
+  .src-badge.Guide { background:#f5f3ff; color:#7c3aed; border-color:#ddd6fe; }
+  .src-badge.Paper { background:#faf5ff; color:#9333ea; border-color:#e9d5ff; }
+  .src-badge.Video { background:#fef2f2; color:#dc2626; border-color:#fecaca; }
+  [data-theme="dark"] .src-badge.Blog  { background:#1e3a5f33; color:#60a5fa; border-color:#1e3a5f99; }
+  [data-theme="dark"] .src-badge.Docs  { background:#14532d33; color:#4ade80; border-color:#14532d99; }
+  [data-theme="dark"] .src-badge.Tool  { background:#0c4a6e33; color:#38bdf8; border-color:#0c4a6e99; }
+  [data-theme="dark"] .src-badge.Forum { background:#7c2d1233; color:#fb923c; border-color:#7c2d1299; }
+  [data-theme="dark"] .src-badge.Guide { background:#3730a333; color:#a78bfa; border-color:#3730a399; }
+  [data-theme="dark"] .src-badge.Paper { background:#4c1d9533; color:#c084fc; border-color:#4c1d9599; }
+
+  .res-link {
+    font-size: 12px; color: var(--text3); text-decoration: none;
+    display: flex; align-items: center; gap: 3px;
+    transition: color 0.15s;
+  }
+  .res-link:hover { color: var(--accent); }
+  .res-link svg { width: 11px; height: 11px; }
+
+  /* ── Footer ── */
+  .page-footer {
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--text3);
+    display: flex; flex-wrap: wrap; gap: 4px; align-items: center;
+  }
+  .page-footer a { color: var(--text2); text-decoration: none; }
+  .page-footer a:hover { color: var(--accent); }
+
+  @media (max-width: 680px) {
+    .page { padding: 32px 20px 80px; }
+    .hero-title { font-size: 28px; }
+    .hero-icon { font-size: 44px; }
+    .topbar { padding: 0 16px; }
+    .progress-pill { display: none; }
+    .breadcrumb { display: none; }
+    .sep { display: none; }
+    .section-title { font-size: 18px; }
   }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="header-inner">
-    <div class="header-row1">
-      <div>
-        <div class="logo">grad<span>school</span> 🎓</div>
-        <div class="tagline">The honest guide nobody gave me. From someone who got into McGill CS.</div>
-      </div>
-      <div class="header-right">
-        <div class="overall-count"><strong id="done-count">0</strong> / <span id="total-count">0</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar"></div></div>
-        <button class="theme-btn" id="theme-btn" title="Toggle theme">🌙</button>
-      </div>
-    </div>
-    <div class="header-row2">
-      <input class="search-input" id="search" type="text" placeholder="Search topics...">
-      <div class="filter-group">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="todo">To Do</button>
-        <button class="filter-btn" data-filter="done">Done</button>
-      </div>
-      <div class="diff-filter-group">
-        <button class="diff-filter-btn found" data-diff="F">Foundational</button>
-        <button class="diff-filter-btn inter" data-diff="I">Intermediate</button>
-        <button class="diff-filter-btn adv" data-diff="A">Advanced</button>
-      </div>
-      <button class="reset-btn" id="reset-btn">Reset All</button>
-    </div>
+<div class="topbar">
+  <div class="topbar-left">
+    <a class="back-link" href="https://bythebug.github.io/gradual/">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M10 12L6 8l4-4"/></svg>
+      gradual
+    </a>
+    <span class="sep">/</span>
+    <span class="breadcrumb">gradschool</span>
+    <span class="progress-pill" id="progress-pill"><b id="done-count">0</b> of 11 read</span>
+  </div>
+  <div class="topbar-right">
+    <button class="theme-btn" id="theme-btn" title="Toggle theme">🌙</button>
   </div>
 </div>
 
-<div class="main">
-  <div class="stats-row">
-    <div class="stat-card"><div class="stat-label">Read</div><div class="stat-value green" id="stat-done">0</div></div>
-    <div class="stat-card"><div class="stat-label">Remaining</div><div class="stat-value blue" id="stat-rem">0</div></div>
-    <div class="stat-card"><div class="stat-label">Total</div><div class="stat-value" id="stat-total">0</div></div>
-    <div class="stat-card"><div class="stat-label">Progress</div><div class="stat-value yellow" id="stat-pct">0%</div></div>
+<div class="page">
+
+  <div class="hero-icon">🎓</div>
+  <h1 class="hero-title">How to Get Into Grad School</h1>
+  <p class="hero-sub">The honest guide nobody gave me.</p>
+  <p class="hero-by">SOP writing, finding supervisors, program selection, funding — and what actually matters in a strong application.</p>
+  <div class="hero-meta">
+    <span>11 resources</span>
+    <span>Updated June 2025</span>
+    <span>By <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener">bythebug</a> · McGill CS admit</span>
   </div>
-  <div id="categories"></div>
-  <div class="empty" id="empty-state"><div class="empty-icon">🔍</div><div class="empty-text">No topics match your filters.</div></div>
-  <div class="footer">
-    Read slow. Apply smart. Get in. &nbsp;·&nbsp; Updated June 2025 &nbsp;·&nbsp;
-    Part of <a href="https://bythebug.github.io/gradual/" style="color:var(--accent);text-decoration:none;">gradual</a>
-    &nbsp;·&nbsp; Created by <a href="https://www.linkedin.com/in/bythebug" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">bythebug</a>
+
+  <hr class="section-divider">
+
+  <div id="sections"></div>
+
+  <div class="page-footer">
+    Read slow. Apply smart. Get in.
+    &nbsp;·&nbsp;
+    Part of <a href="https://bythebug.github.io/gradual/">gradual</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/bythebug/gradschool" target="_blank" rel="noopener">GitHub</a>
   </div>
+
 </div>
 
 <script>
 const DATA = [
   {
-    id: 'before', emoji: '🎯', name: 'Before You Apply',
+    id: 'before',
+    emoji: '🎯',
+    name: 'Before You Apply',
     subtitle: 'read these first — in this order',
-    concepts: [{ name: '', items: [
-      { title: 'A Survival Guide to a PhD — Andrej Karpathy. Long, honest, covers everything nobody tells you', src: 'Blog', diff: 'F', url: 'https://karpathy.github.io/2016/09/07/phd/' },
-      { title: 'How to Pick Your Grad School — Tim Dettmers. The best single resource on MSc vs PhD, rankings vs fit, and the advisor question', src: 'Blog', diff: 'F', url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/' },
-      { title: 'Applying to PhD Programs in CS — Mor Harchol-Balter, CMU. The canonical guide. Covers what gets you in and what does not', src: 'Docs', diff: 'F', url: 'https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf' },
-    ]}]
+    callout: { icon: '💡', text: 'This section alone will save you months of confusion. Read all three before you do anything else.' },
+    items: [
+      {
+        title: 'A Survival Guide to a PhD',
+        author: 'Andrej Karpathy',
+        desc: 'Long, honest, covers everything nobody tells you about PhD life — the lows, the isolation, the relationship with your advisor. If you only read one thing before applying, make it this.',
+        src: 'Blog',
+        url: 'https://karpathy.github.io/2016/09/07/phd/'
+      },
+      {
+        title: 'How to Pick Your Grad School',
+        author: 'Tim Dettmers',
+        desc: 'The best single resource on MSc vs PhD, rankings vs research fit, and the advisor question. Cuts through the prestige noise and gives you a real framework.',
+        src: 'Blog',
+        url: 'https://timdettmers.com/2020/03/10/how-to-pick-your-grad-school/'
+      },
+      {
+        title: 'Applying to PhD Programs in Computer Science',
+        author: 'Mor Harchol-Balter · CMU',
+        desc: 'The canonical guide. Written by a CMU professor. Covers what actually gets you in, what kills your application, and why most people apply completely wrong.',
+        src: 'Docs',
+        url: 'https://www.cs.cmu.edu/~harchol/gradschooltalk.pdf'
+      },
+    ]
   },
   {
-    id: 'programs', emoji: '🗺️', name: 'Finding the Right Programs',
+    id: 'programs',
+    emoji: '🗺️',
+    name: 'Finding the Right Programs',
     subtitle: 'the advisor matters more than the school',
-    concepts: [{ name: '', items: [
-      { title: 'CS Rankings — ranked by publication volume per research area, not reputation or US News', src: 'Tool', diff: 'F', url: 'https://csrankings.org/' },
-    ]}]
+    callout: { icon: '📌', text: 'Don\'t apply to schools. Apply to advisors. Find 3–5 professors whose work you genuinely find interesting, then check if their program is a good fit.' },
+    items: [
+      {
+        title: 'CS Rankings',
+        author: 'csrankings.org',
+        desc: 'Ranked by publication volume per research area — not reputation, not US News. Filter by your specific area (NLP, systems, CV) to find programs that are actually strong in what you care about.',
+        src: 'Tool',
+        url: 'https://csrankings.org/'
+      },
+    ]
   },
   {
-    id: 'sop', emoji: '✍️', name: 'The Statement of Purpose',
+    id: 'sop',
+    emoji: '✍️',
+    name: 'The Statement of Purpose',
     subtitle: 'the most important thing you will write',
-    concepts: [{ name: '', items: [
-      { title: 'CS PhD Statements of Purpose — annotated real examples from admitted students at top programs', src: 'Blog', diff: 'F', url: 'https://cs-sop.notion.site/CS-PhD-Statements-of-Purpose-df39955313834889b7ac5411c37b958b' },
-      { title: 'What CS faculty look for in PhD applications — Jean Yang. Short, direct, from the other side of the table', src: 'Blog', diff: 'F', url: 'https://jxyzabc.blogspot.com/2012/10/faq-applying-to-graduate-school-in.html' },
-    ]}]
+    callout: { icon: '⚠️', text: 'The SOP is not a resume in paragraph form. It is a research proposal. Professors are asking: can this person define and pursue a research question? Answer that.' },
+    items: [
+      {
+        title: 'CS PhD Statements of Purpose',
+        author: 'cs-sop.notion.site',
+        desc: 'Annotated real SOPs from admitted students at top programs, with commentary on what works and why. Reading even two or three of these is worth more than any template or guide.',
+        src: 'Blog',
+        url: 'https://cs-sop.notion.site/CS-PhD-Statements-of-Purpose-df39955313834889b7ac5411c37b958b'
+      },
+      {
+        title: 'What CS Faculty Look for in PhD Applications',
+        author: 'Jean Yang',
+        desc: 'Short, direct, written from the other side of the table. Explains what actually goes through a professor\'s mind when reading your application. Read this before you write a single word.',
+        src: 'Blog',
+        url: 'https://jxyzabc.blogspot.com/2012/10/faq-applying-to-graduate-school-in.html'
+      },
+    ]
   },
   {
-    id: 'email', emoji: '📧', name: 'Contacting Professors',
-    subtitle: 'one email to the right person can change everything',
-    concepts: [{ name: '', items: [
-      { title: 'How to Email a Research Supervisor — Matt Might. The framework behind every email that actually gets a reply', src: 'Blog', diff: 'F', url: 'https://matt.might.net/articles/how-to-email/' },
-    ]}]
+    id: 'email',
+    emoji: '📧',
+    name: 'Contacting Professors',
+    subtitle: 'one good email to the right person can change everything',
+    callout: null,
+    items: [
+      {
+        title: 'How to Email a Research Supervisor',
+        author: 'Matt Might',
+        desc: 'The framework behind every cold email that actually gets a reply. Keep it short, reference a specific paper, and make it obvious you did your homework. Most people don\'t — that\'s your edge.',
+        src: 'Blog',
+        url: 'https://matt.might.net/articles/how-to-email/'
+      },
+    ]
   },
   {
-    id: 'funding', emoji: '💰', name: 'Funding',
+    id: 'funding',
+    emoji: '💰',
+    name: 'Funding',
     subtitle: 'never pay for a PhD',
-    concepts: [{ name: '', items: [
-      { title: 'NSF Graduate Research Fellowship — the most prestigious US fellowship, apply in your senior year', src: 'Docs', diff: 'I', url: 'https://www.nsfgrfp.org/' },
-      { title: 'NSERC CGS-M and CGS-D — Canadian government grad scholarships, up to $35k/year', src: 'Docs', diff: 'I', url: 'https://www.nserc-crsng.gc.ca/students-etudiants/pg-cs/index_eng.asp' },
-    ]}]
+    callout: { icon: '🚨', text: 'If a PhD program offers you admission without funding, that is a red flag, not an honor. Fully funded PhDs exist. Find one — or negotiate.' },
+    items: [
+      {
+        title: 'NSF Graduate Research Fellowship (GRFP)',
+        author: 'National Science Foundation',
+        desc: 'The most prestigious US fellowship for grad students — $37k/year stipend plus tuition coverage. Apply in your senior undergrad year or first year of grad school. Winning or even honorable mention changes your trajectory.',
+        src: 'Docs',
+        url: 'https://www.nsfgrfp.org/'
+      },
+      {
+        title: 'NSERC CGS-M and CGS-D',
+        author: 'Government of Canada',
+        desc: 'Canadian government scholarships for Master\'s ($17.5k/year) and doctoral ($35k/year) students. If you\'re Canadian, apply regardless of where you study — the money follows you.',
+        src: 'Docs',
+        url: 'https://www.nserc-crsng.gc.ca/students-etudiants/pg-cs/index_eng.asp'
+      },
+    ]
   },
   {
-    id: 'decision', emoji: '🚀', name: 'The Decision',
+    id: 'decision',
+    emoji: '🚀',
+    name: 'The Decision',
     subtitle: 'picking the right offer matters more than getting in',
-    concepts: [{ name: '', items: [
-      { title: 'Getting the Advising Relationship Right — Columbia guide. The single most important thing to figure out before you accept', src: 'Docs', diff: 'I', url: 'https://www.cs.columbia.edu/wp-content/uploads/2019/03/Get-Advisor.pdf' },
-      { title: 'r/gradadmissions — results, advice, school-specific threads. The community that has been through it', src: 'Forum', diff: 'F', url: 'https://www.reddit.com/r/gradadmissions/' },
-    ]}]
+    callout: { icon: '💬', text: 'Before accepting any offer: talk to current PhD students in the lab — without the professor present. Ask them how often they meet, whether they feel supported, and whether they\'d do it again.' },
+    items: [
+      {
+        title: 'Getting the Advising Relationship Right',
+        author: 'Columbia University CS',
+        desc: 'The single most important thing to figure out before you accept an offer. A bad advisor can end a PhD. A good one can define a career. This guide tells you what questions to ask and what answers to watch out for.',
+        src: 'Docs',
+        url: 'https://www.cs.columbia.edu/wp-content/uploads/2019/03/Get-Advisor.pdf'
+      },
+      {
+        title: 'r/gradadmissions',
+        author: 'Reddit',
+        desc: 'Results threads, school-specific advice, salary negotiation help, and the community that has been through exactly what you\'re going through. Search before you post — most questions have been answered.',
+        src: 'Forum',
+        url: 'https://www.reddit.com/r/gradadmissions/'
+      },
+    ]
   },
 ];
 
-// ── State ──────────────────────────────────────────────────────────────────────
 const KEY = 'gradschool-v1';
-let done = new Set(JSON.parse(localStorage.getItem(KEY) || '[]'));
-let activeFilter = 'all';
-let activeDiff = null;
-let searchQ = '';
+let readSet = new Set(JSON.parse(localStorage.getItem(KEY) || '[]'));
 
-// ── Build DOM ──────────────────────────────────────────────────────────────────
-function buildId(catId, cIdx, iIdx) { return `${catId}:${cIdx}:${iIdx}`; }
+function totalItems() {
+  let n = 0;
+  DATA.forEach(s => s.items.forEach(() => n++));
+  return n;
+}
 
-function renderAll() {
-  const container = document.getElementById('categories');
+function updateProgress() {
+  const total = totalItems();
+  document.getElementById('done-count').textContent = readSet.size;
+  const pill = document.getElementById('progress-pill');
+  pill.innerHTML = `<b id="done-count">${readSet.size}</b> of ${total} read`;
+}
+
+function render() {
+  const container = document.getElementById('sections');
   container.innerHTML = '';
 
-  DATA.forEach(cat => {
-    const el = document.createElement('div');
-    el.className = 'category';
-    el.id = 'cat-' + cat.id;
+  DATA.forEach((section, si) => {
+    const div = document.createElement('div');
+    div.className = 'section';
 
-    let allItems = [];
-    cat.concepts.forEach((c, ci) => c.items.forEach((item, ii) => allItems.push({ item, ci, ii })));
-    const total = allItems.length;
-    const doneCount = allItems.filter(({ item, ci, ii }) => done.has(buildId(cat.id, ci, ii))).length;
-
-    el.innerHTML = `
-      <div class="cat-header" onclick="toggleCat('${cat.id}')">
-        <span class="cat-chevron">▶</span>
-        <span class="cat-emoji">${cat.emoji}</span>
-        <span class="cat-name">${cat.name}<span class="cat-subtitle">${cat.subtitle}</span></span>
-        <div class="cat-meta">
-          <span class="cat-done-count" id="cdone-${cat.id}">${doneCount}</span>
-          <span class="cat-total-count">/ ${total}</span>
-          <div class="cat-bar-wrap"><div class="cat-bar-fill" id="cbar-${cat.id}" style="width:${total?doneCount/total*100:0}%"></div></div>
-        </div>
-      </div>
-      <div class="questions-list" id="qlist-${cat.id}"></div>`;
-
-    const qlist = el.querySelector('.questions-list');
-    let order = 1;
-    cat.concepts.forEach((concept, ci) => {
-      const div = document.createElement('div');
-      div.className = 'concept-divider';
-      div.innerHTML = `<span class="concept-label">${concept.name}</span>`;
-      qlist.appendChild(div);
-
-      concept.items.forEach((item, ii) => {
-        const id = buildId(cat.id, ci, ii);
-        const isDone = done.has(id);
-        const diffLabel = item.diff === 'F' ? 'Foundational' : item.diff === 'I' ? 'Intermediate' : 'Advanced';
-        const row = document.createElement('div');
-        row.className = 'q-row' + (isDone ? ' done' : '');
-        row.dataset.id = id;
-        row.dataset.diff = item.diff;
-        row.dataset.title = item.title.toLowerCase();
-        row.innerHTML = `
-          <div class="q-checkbox${isDone?' checked':''}" onclick="toggle('${id}',this)">${isDone?'✓':''}</div>
-          <span class="q-order">${order}</span>
-          <span class="diff-badge ${item.diff}">${diffLabel}</span>
-          <span class="q-title">${item.title}</span>
-          <span class="src-badge ${item.src}">${item.src}</span>
-          <a class="q-link" href="${item.url}" target="_blank" rel="noopener">${item.btn || 'Read →'}</a>`;
-        qlist.appendChild(row);
-        order++;
-      });
-    });
-
-    container.appendChild(el);
-  });
-
-  applyFilters();
-  updateStats();
-}
-
-function toggleCat(id) {
-  document.getElementById('cat-' + id).classList.toggle('open');
-}
-
-function toggle(id, checkbox) {
-  if (done.has(id)) {
-    done.delete(id);
-    checkbox.classList.remove('checked');
-    checkbox.textContent = '';
-    checkbox.closest('.q-row').classList.remove('done');
-  } else {
-    done.add(id);
-    checkbox.classList.add('checked');
-    checkbox.textContent = '✓';
-    checkbox.closest('.q-row').classList.add('done');
-  }
-  localStorage.setItem(KEY, JSON.stringify([...done]));
-  updateStats();
-}
-
-function updateStats() {
-  const total = document.querySelectorAll('.q-row').length;
-  const doneCount = done.size;
-  document.getElementById('done-count').textContent = doneCount;
-  document.getElementById('total-count').textContent = total;
-  document.getElementById('stat-done').textContent = doneCount;
-  document.getElementById('stat-rem').textContent = total - doneCount;
-  document.getElementById('stat-total').textContent = total;
-  document.getElementById('stat-pct').textContent = total ? Math.round(doneCount / total * 100) + '%' : '0%';
-  document.getElementById('progress-bar').style.width = total ? (doneCount / total * 100) + '%' : '0%';
-
-  DATA.forEach(cat => {
-    let catDone = 0, catTotal = 0;
-    cat.concepts.forEach((c, ci) => c.items.forEach((_, ii) => {
-      catTotal++;
-      if (done.has(buildId(cat.id, ci, ii))) catDone++;
-    }));
-    const doneEl = document.getElementById('cdone-' + cat.id);
-    const barEl = document.getElementById('cbar-' + cat.id);
-    if (doneEl) doneEl.textContent = catDone;
-    if (barEl) barEl.style.width = catTotal ? (catDone / catTotal * 100) + '%' : '0%';
-  });
-}
-
-function applyFilters() {
-  let anyVisible = false;
-  document.querySelectorAll('.q-row').forEach(row => {
-    const isDone = row.classList.contains('done');
-    const diff = row.dataset.diff;
-    const title = row.dataset.title;
-    let show = true;
-    if (activeFilter === 'todo' && isDone) show = false;
-    if (activeFilter === 'done' && !isDone) show = false;
-    if (activeDiff && diff !== activeDiff) show = false;
-    if (searchQ && !title.includes(searchQ)) show = false;
-    row.classList.toggle('hidden', !show);
-    if (show) anyVisible = true;
-  });
-  document.querySelectorAll('.category').forEach(cat => {
-    cat.style.display = cat.querySelectorAll('.q-row:not(.hidden)').length === 0 ? 'none' : '';
-  });
-  document.getElementById('empty-state').classList.toggle('show', !anyVisible);
-}
-
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
-    applyFilters();
-  });
-});
-
-document.querySelectorAll('.diff-filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const d = btn.dataset.diff;
-    if (activeDiff === d) { activeDiff = null; btn.classList.remove('active'); }
-    else {
-      document.querySelectorAll('.diff-filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeDiff = d;
+    let calloutHTML = '';
+    if (section.callout) {
+      calloutHTML = `<div class="callout"><span class="callout-icon">${section.callout.icon}</span>${section.callout.text}</div>`;
     }
-    applyFilters();
-  });
-});
 
-document.getElementById('search').addEventListener('input', e => {
-  searchQ = e.target.value.toLowerCase().trim();
-  applyFilters();
-});
+    let itemsHTML = '<div class="resource-list">';
+    section.items.forEach((item, ii) => {
+      const id = `${section.id}:${ii}`;
+      const isRead = readSet.has(id);
+      itemsHTML += `
+        <div class="resource${isRead ? ' read' : ''}" id="res-${id}">
+          <div class="res-check${isRead ? ' on' : ''}" onclick="toggle('${id}')"></div>
+          <div class="res-body">
+            <div class="res-top">
+              <a class="res-title" href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+              <span class="res-author">${item.author}</span>
+            </div>
+            <div class="res-desc">${item.desc}</div>
+            <div class="res-foot">
+              <span class="src-badge ${item.src}">${item.src}</span>
+              <a class="res-link" href="${item.url}" target="_blank" rel="noopener">
+                Open
+                <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5 2h5v5"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>`;
+    });
+    itemsHTML += '</div>';
+
+    div.innerHTML = `
+      <div class="section-head">
+        <div class="section-title">${section.emoji} ${section.name}</div>
+        <div class="section-subtitle">${section.subtitle}</div>
+      </div>
+      ${calloutHTML}
+      ${itemsHTML}
+      ${si < DATA.length - 1 ? '<hr class="section-divider" style="margin-top:48px;">' : ''}
+    `;
+    container.appendChild(div);
+  });
+
+  updateProgress();
+}
+
+function toggle(id) {
+  const card = document.getElementById('res-' + id);
+  const check = card.querySelector('.res-check');
+  if (readSet.has(id)) {
+    readSet.delete(id);
+    card.classList.remove('read');
+    check.classList.remove('on');
+  } else {
+    readSet.add(id);
+    card.classList.add('read');
+    check.classList.add('on');
+  }
+  localStorage.setItem(KEY, JSON.stringify([...readSet]));
+  updateProgress();
+}
 
 document.getElementById('theme-btn').addEventListener('click', () => {
   const html = document.documentElement;
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.getElementById('theme-btn').textContent = isDark ? '☀️' : '🌙';
+  const dark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', dark ? 'light' : 'dark');
+  document.getElementById('theme-btn').textContent = dark ? '🌙' : '☀️';
 });
 
-document.getElementById('reset-btn').addEventListener('click', () => {
-  if (confirm('Reset all progress?')) {
-    done.clear();
-    localStorage.removeItem(KEY);
-    renderAll();
-  }
-});
-
-renderAll();
+render();
 </script>
 </body>
 </html>
